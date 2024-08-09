@@ -1,5 +1,6 @@
-import pandas as pd
-import matplotlib.pyplot as plt
+# Gerekli Kütüphanelerin Yüklenmesi
+import pandas as pd  
+import matplotlib.pyplot as plt 
 import seaborn as sns
 
 # Veri Kümesini Yükleme
@@ -38,10 +39,13 @@ plt.show()
 # Korelasyon matrisini ısı haritası ile gösterme
 print("\nKorelasyon matrisinin ısı haritası:")
 plt.figure(figsize=(10, 7))
-sns.heatmap(iris.corr(), annot=True, cmap='coolwarm')
+# 'class' sütununu çıkararak sadece sayısal sütunlarla korelasyon matrisini hesaplayın
+numeric_columns = iris.drop(columns=['class'])
+sns.heatmap(numeric_columns.corr(), annot=True, cmap='coolwarm')
 plt.show()
 
 # Raporlama
+# Bulgu ve içgörülerinizi özetleyen bir rapor oluşturma
 print("\nRaporlama:")
 print("""
 - Veri kümesinin genel özellikleri: Iris veri kümesi, iris çiçeklerinin sepal uzunluğu, sepal genişliği, petal uzunluğu ve petal genişliği gibi özelliklerini içerir. 
